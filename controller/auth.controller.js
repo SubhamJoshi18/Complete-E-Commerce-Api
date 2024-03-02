@@ -80,6 +80,7 @@ export const LoginController = async (req, res, next) => {
   const FindEmail = await userModel.findOne({ email: email });
   const checkPassword = await bcrypt.compare(password, FindEmail.password);
   console.log(FindEmail);
+  console.log(checkPassword);
   const tokenUser = {
     userId: FindEmail._id,
     name: FindEmail.name,

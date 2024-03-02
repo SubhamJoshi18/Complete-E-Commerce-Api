@@ -8,8 +8,11 @@ import dotenv from "dotenv";
 import authrouter from "./routes/auth.route.js";
 // import { errorHandlerMiddleware } from "./middleware/error-handler.js";
 dotenv.config();
-startDB();
-console.log("Database is connected");
+startDB()
+  .then(() => {
+    console.log("Database is connected");
+  })
+  .catch((err) => console.log(err));
 const app = express();
 const port = process.env.PORT || 3000;
 
